@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         
         String datos = "statt#\n" +
 "state _a.cad$\n" +
@@ -38,6 +38,6 @@ public class Main {
             System.out.println("Codigo correcto");
         }else
             System.out.println("Error en sintactico");
-    }
+    }*/
     
 }

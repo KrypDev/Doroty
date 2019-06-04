@@ -22,11 +22,15 @@ public class Sintactico {
         if (tokens.get(0).getToken() == Sym.statt) {
             System.out.println(tokens.get(0).toString());
             tokens.remove(0);
-            if (instructions()) {
-                if (tokens.get(0).getToken() == Sym.end) {
-                    System.out.println(tokens.get(0).toString());
-                    tokens.remove(0);
-                    return true;
+            if (tokens.size() > 0) {
+                if (instructions()) {
+                    if (tokens.get(0).getToken() == Sym.end) {
+                        System.out.println(tokens.get(0).toString());
+                        tokens.remove(0);
+                        return true;
+                    }else{
+                        return false;
+                    }
                 }else{
                     return false;
                 }
