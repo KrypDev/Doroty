@@ -9,8 +9,10 @@ public class Main {
 
     public static void main(String[] args) {
         
-        String datos = "statt#\nstate _as1.cad$\n"
-                + "si[12!_d2]{\nmodifica_a:12+23-43/_sd456*_asS1$\n" +
+        String datos = "statt#\n" +
+"state _a.cad$\n" +
+"si[12!_d2]{\n" +
+"	modifica_a:12+23-43/_sd456*_asS1$\n" +
 "	loop [12,[_s>543]]{\n" +
 "		entra@{_ww}\n" +
 "		sale@{'dfghjdkfvbhgbndfkj'}\n" +
@@ -27,10 +29,15 @@ public class Main {
 "	 modifica _a:12$\n" +
 "}\n" +
 "end#";
+
         
         Lexico lex = new Lexico();
-        ArrayList<Token> tokens = lex.GetTokens(datos);
+        Sintactico sin = new Sintactico();
         
+        if (sin.validar(lex.GetTokens(datos)) ==true) {
+            System.out.println("Codigo correcto");
+        }else
+            System.out.println("Error en sintactico");
     }
     
 }
