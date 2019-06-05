@@ -3,6 +3,7 @@ package doroty;
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.StringReader;
+import java.util.ArrayList;
 
 public class Ventana extends javax.swing.JFrame {
     
@@ -79,13 +80,20 @@ public class Ventana extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String datos = jTextArea1.getText();
         if (!datos.isEmpty()) {
-            if (sin.validar(lex.GetTokens(datos)) ==true) {
-                jTextField3.setText("TODO BIEN");
-                jTextField3.setBackground(new java.awt.Color(39, 174, 96));
+            ArrayList<Token> tokens = lex.GetTokens(datos);
+            if(tokens != null){
+                if (sin.validar(lex.GetTokens(datos)) ==true) {
+                    jTextField3.setText("TODO BIEN");
+                    jTextField3.setBackground(new java.awt.Color(39, 174, 96));
+                }else{
+                    jTextField3.setText("ERROR ENCONTRADO");
+                    jTextField3.setBackground(Color.getHSBColor(39, 174, 98));
+                }
             }else{
                 jTextField3.setText("ERROR ENCONTRADO");
                 jTextField3.setBackground(Color.getHSBColor(39, 174, 98));
             }
+            
         }else{
             jTextField3.setText("NO SE PUEDE COMPILAR");
             jTextField3.setBackground(Color.getHSBColor(39, 174, 98));

@@ -15,7 +15,7 @@ public class Lexico {
     private String leng = "(statt#)|(end#)|(modifica)|(state)|(si)|(loop)"
             + "|(entra@)|(sale@)|(dig|cad)|([<>=!])|([-+*/])|(:)"
             + "|(\\$)|([.])|(')|(\\[)|(\\])|(\\{)"
-            + "|(\\})|(\\,)|(_[a-zA-Z][a-zA-Z0-9]*)|([a-zA-Z]+)|([0-9]+)";
+            + "|(\\})|(\\,)|(_[a-zA-Z][a-zA-Z0-9]*)|([a-zA-Z]+)|([0-9]+)|([_])";
     
     
     ArrayList<Token> GetTokens(String codigo){
@@ -139,6 +139,10 @@ public class Lexico {
             if (p23 != null) {
                 System.out.println("Token "+Sym.number+": "+p23);
                 tokens.add(new Token(Sym.number, "NUMBER"));
+            }
+            String p24 = m.group(24);
+            if (p24 != null) {
+                return null;
             }
         }
         
