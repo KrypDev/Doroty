@@ -24,10 +24,14 @@ public class Sintactico {
             tokens.remove(0);
             if (tokens.size() > 0) {
                 if (instructions()) {
-                    if (tokens.get(0).getToken() == Sym.end) {
+                    if (tokens.size() > 0) {
+                        if (tokens.get(0).getToken() == Sym.end) {
                         System.out.println(tokens.get(0).toString());
                         tokens.remove(0);
                         return true;
+                        }else{
+                            return false;
+                        }
                     }else{
                         return false;
                     }
@@ -43,48 +47,52 @@ public class Sintactico {
     }
     
     private boolean instructions(){
-        if (tokens.get(0).getToken() == Sym.state) {
-            System.out.println(tokens.get(0).toString());
-            tokens.remove(0);
-            if (state()) 
-                return instructions();
-            else
-                return false;
-        }else if(tokens.get(0).getToken() == Sym.entra){
-            System.out.println(tokens.get(0).toString());
-            tokens.remove(0);
-            if (input()) 
-                return instructions();
-            else
-                return false;
-        }else if(tokens.get(0).getToken() == Sym.sale){
-            System.out.println(tokens.get(0).toString());
-            tokens.remove(0);
-            if (output()) 
-                return instructions();
-            else
-                return false;
-        }else if(tokens.get(0).getToken() == Sym.si){
-            System.out.println(tokens.get(0).toString());
-            tokens.remove(0);
-            if (si()) 
-                return instructions();
-            else
-                return false;
-        }else if(tokens.get(0).getToken() == Sym.loop){
-            System.out.println(tokens.get(0).toString());
-            tokens.remove(0);
-            if (loop()) 
-                return instructions();
-            else
-                return false;
-        }else if(tokens.get(0).getToken() == Sym.modifica){
-            System.out.println(tokens.get(0).toString());
-            tokens.remove(0);
-            if (assigment()) 
-                return instructions();
-            else
-                return false;
+        if (tokens.size() > 0) {
+            if (tokens.get(0).getToken() == Sym.state) {
+                System.out.println(tokens.get(0).toString());
+                tokens.remove(0);
+                if (state()) 
+                    return instructions();
+                else
+                    return false;
+            }else if(tokens.get(0).getToken() == Sym.entra){
+                System.out.println(tokens.get(0).toString());
+                tokens.remove(0);
+                if (input()) 
+                    return instructions();
+                else
+                    return false;
+            }else if(tokens.get(0).getToken() == Sym.sale){
+                System.out.println(tokens.get(0).toString());
+                tokens.remove(0);
+                if (output()) 
+                    return instructions();
+                else
+                    return false;
+            }else if(tokens.get(0).getToken() == Sym.si){
+                System.out.println(tokens.get(0).toString());
+                tokens.remove(0);
+                if (si()) 
+                    return instructions();
+                else
+                    return false;
+            }else if(tokens.get(0).getToken() == Sym.loop){
+                System.out.println(tokens.get(0).toString());
+                tokens.remove(0);
+                if (loop()) 
+                    return instructions();
+                else
+                    return false;
+            }else if(tokens.get(0).getToken() == Sym.modifica){
+                System.out.println(tokens.get(0).toString());
+                tokens.remove(0);
+                if (assigment()) 
+                    return instructions();
+                else
+                    return false;
+            }else{
+                return true;
+            }
         }else{
             return true;
         }
